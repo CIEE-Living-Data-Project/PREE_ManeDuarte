@@ -1,0 +1,95 @@
+---
+title           : "Productivity and Reproducibility in Ecology and Evolution Mini-Project"
+shorttitle      : "Pre-registration"
+date            : "`r Sys.setlocale('LC_TIME', 'C'); format(Sys.time(), '%d\\\\. %B %Y')`"
+
+author: 
+  - name        : Maria de la Paz Mane Duarte
+    affiliation : 1
+
+affiliation:
+  - id          : 1
+    institution : University of British Columbia
+
+csl: https://www.zotero.org/styles/ecology-letters
+bibliography: PREE_ManeDuarte.bib
+
+output: prereg::prereg_pdf
+---
+
+## **Study information**
+
+#### Title:
+
+"Phylogenetic structure and assembly mechanisms in plant communities in the Cienegas and Mangrove State Reserve on the North coast of Yucatan"
+
+#### Authors:
+
+Maria de la Paz Mane Duarte
+
+#### Description
+
+Plant communities found in stressful environments, such as coastal ecosystems, where biotic and abiotic filters can be strong determinants of community structure [@valiente-banuet2007][@forey2009] are ideal systems to evaluate the relative importance of deterministic versus random mechanisms in shaping community assembly. Therefore, this study aims to evaluate the phylogenetic diversity and structure in plant communities in order to understand the role of deterministic and stochastic assembly processes in four contrasting communities of the tropical coastal wetland in the Cienegas and Mangrove State Reserve on the North coast of Yucatan.
+
+#### **Hypothesis**
+
+Communities with more environment and soil stress (floodable ecosystems) will show clustering patterns in plant communities due to evolutionary convergence (particular morphological and physiological attributes) or attributes shared by closely related species.
+
+## **Design plan**
+
+#### **Study type**
+
+Other
+
+#### **Study design**
+
+Plastid genetic markers for each sampled plant will be collected from GenBank to evaluate phylogenetic relationship. This will be meassured estimating the Phylogenetic Diversity (PD), Net Relatedness Index (NRI) and Nearest Taxon Index (NTI) to identify ecological and evolutionary processes mediating community assembly.
+
+## **Sampling Plan**
+
+Using five 100 x 5 m linear transects per community, every plant species (trees, shrubs, and herbs) present at each studied vegetation type will be sampled. The identity of the plant species' will be determined using dichotomous keys [@flores2001][@chávez2003]. Vouchers specimens will be deposited at the MEXU (Universidad Autónoma de México); CICY (Centro de Investigación Científica de Yucatán) and UADY (Universidad Autónoma de Yucatán) herbaria. For this study, only presence-absence data will be considered because coastal communities are characterized by low species abundance and cyclic succession [@acosta2009] which could bias results based on abundance.
+
+## **Variables**
+
+#### **Meassured variables**
+
+-   Pressence/absence of plants in each community.
+
+-   Genetic information for conserved plastids regions (matK, rcbL and trnL) of each sampled plant.
+
+-   Phylogenetic diversity.
+
+-   Net Relatedness Index (NRI).
+
+-   Nearest Taxon Index (NTI).
+
+## **Analysis Plan**
+
+Phylogenetic relationships will be reconstructed among all the species recorded across the four plant communities by creating a DNA matrix using three plastid genetic markers (matK, trnL and rbcL). The sequences will be obtained from the GenBank database. The gene regions will be concatenated and analyzed as a single matrix for it to be proofed, edited, and assembled using PhyDE v.0.99 [@müller2010].
+
+#### **Statistical models**
+
+To assess the phylogenetic relationships for plant communities, time-calibrated tree-based cladograms will be estimated using a Bayesian approach implemented in BEAST v.1.8.0 [@drummond2007] through the CIPRES Science Gateway.
+
+Analyses for the estimation of the NRI and NTI will use a presence-absence matrix along with the 'picante' package [@kembel2010] for R v. 2.14.0 [@rcoreteam2015].
+
+#### **Data exclusion**
+
+Any species for which the precise sequence data is unobtainable will be exchanged with a sister specie.
+
+## **Other**
+
+#### **References**
+
+::: {refs}
+:::
+
+#### 
+
+```{=tex}
+\vspace{-2pc}
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{-1in}
+\setlength{\parskip}{8pt}
+```
+\noindent

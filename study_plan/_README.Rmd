@@ -1,0 +1,10 @@
+---
+title: "README"
+author: "Maria de la Paz Mane Duarte"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## README_StudyPlan
+
+The present folder contains the pre-registration for the project.

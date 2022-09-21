@@ -1,0 +1,16 @@
+---
+title: "README"
+author: "Maria de la Paz Mane Duarte"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## README_Scripts
+
+The present folder contains all the scripts used during this project's development. The script's names are very straight-forward and have the following goals:
+
+1.  Setting Github.
+
+2.  Getting the data from OSF.
+
+3.  Analyzing the data to produce the project's outputs (found in the outputs folder).

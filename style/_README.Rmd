@@ -1,0 +1,10 @@
+---
+title: "README"
+author: "Maria de la Paz Mane Duarte"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## README_Style
+
+The present folder contains all the elements needed for the style of the pre-registration and the manuscript. The .bib file contains all the references and the .csl file has the Ecology Letters reference format.

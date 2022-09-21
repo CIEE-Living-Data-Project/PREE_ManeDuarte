@@ -1,0 +1,10 @@
+---
+title: "README"
+author: "Maria de la Paz Mane Duarte"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## README_Outputs 
+
+The following folder contains all the outputs generated from the analysis script (found in the scripts folder). All the resulting plots and table can be found in .jpg format.
