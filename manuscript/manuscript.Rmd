@@ -1,0 +1,69 @@
+---
+title: "PREE Mini-Project Manuscript" 
+subtitle: "***Phylogenetic structure and assembly mechanisms in plant communities in the Cienegas and Mangrove State Reserve on the North coast of Yucatan***"
+author: "Maria de la Paz Mane-Duarte^1^"
+affilitation: "University of British Columbia"
+date: "`r Sys.Date()`"
+
+geometry: margin=1in
+header-includes:
+  - \usepackage{setspace}
+  - \doublespacing
+  - \usepackage{lineno}
+  - \linenumbers
+  - \usepackage{fontspec}
+  - \setmainfont{Times New Roman}
+
+
+csl: https://www.zotero.org/styles/ecology-letters
+bibliography: PREE_ManeDuarte.bib
+
+output:
+  pdf_document:
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(ggplot2)
+```
+
+1.  University of British Columbia
+
+## Abstract
+
+Plant communities found in stressful environments, such as coastal ecosystems, where biotic and abiotic filters can be strong determinants of community structure [@valiente-banuet2007a][@forey2009] are ideal systems to evaluate the relative importance of deterministic versus random mechanisms in shaping community assembly. Therefore, this study aims to evaluate the phylogenetic diversity and structure in plant communities in order to understand the role of deterministic and stochastic assembly processes in four contrasting communities of the tropical coastal wetland in the Cienegas and Mangrove State Reserve on the North coast of Yucatan.
+
+**Key words:** blablabla, blabla, blah.
+
+## Introduction
+
+## Materials and Methods
+
+## Results
+
+## Discussion
+
+## Conclusions
+
+## References
+
+::: {refs}
+:::
+
+#### 
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
