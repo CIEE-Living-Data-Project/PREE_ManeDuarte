@@ -24,28 +24,139 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE)
+library(tidyverse)
 library(ggplot2)
+library(knitr)
+library(kableExtra)
+
+# Pulling the data from the OSF project
+communities <- read.csv("https://osf.io/gdpbh/download")
+
+# Selecting only the first 5 rows to work with in a new object
+comms_phylodiv <- communities %>%
+  select(1:5)
+
+comms_phylodiv[comms_phylodiv == "CDS"] <- "Coastal Dune Shrubs"
+comms_phylodiv[comms_phylodiv == "M"] <- "Mangrove"
+comms_phylodiv[comms_phylodiv == "P"] <- "Peten"
+comms_phylodiv[comms_phylodiv == "TLFF"] <- "Tropical Low Flooding Forest"
+
+```
+
+```{r include=FALSE}
+
+## Downloading the 'grateful' package
+library(remotes)
+remotes::install_github('Pakillo/grateful')
+library(grateful)
+get_pkgs_info()
+
 ```
 
 1.  University of British Columbia
 
 ## Abstract
 
-Plant communities found in stressful environments, such as coastal ecosystems, where biotic and abiotic filters can be strong determinants of community structure [@valiente-banuet2007a][@forey2009] are ideal systems to evaluate the relative importance of deterministic versus random mechanisms in shaping community assembly. Therefore, this study aims to evaluate the phylogenetic diversity and structure in plant communities in order to understand the role of deterministic and stochastic assembly processes in four contrasting communities of the tropical coastal wetland in the Cienegas and Mangrove State Reserve on the North coast of Yucatan.
+Plant communities found in stressful environments, such as coastal ecosystems, where biotic and abiotic filters can be strong determinants of community structure [@valiente-banuet2007][@forey2009] are ideal systems to evaluate the relative importance of deterministic versus random mechanisms in shaping community assembly. Therefore, this study aims to evaluate the phylogenetic diversity and structure in plant communities in order to understand the role of deterministic and stochastic assembly processes in four contrasting communities of the tropical coastal wetland in the Cienegas and Mangrove State Reserve on the North coast of Yucatan.
 
-**Key words:** blablabla, blabla, blah.
+**Key words:** phylogenetic diversity, community assembly, coastal communities, plant communities.
+
+\pagebreak
 
 ## Introduction
 
+Tropical coastal wetlands are dynamic environments included among the most productive and most efficient for carbon (C) processing and sequestration within world´s ecosystems [@angulo2018]. These are composed of diverse plant assemblages (e.g., sandy beaches, marshes, sandbars, mangroves, hypersaline lagoons, among others) and recognized as harsh environments due to poor soils with high salinity, oxygen deficiency, and accumulation of phytotoxins in the substrate, which represent a challenge for plants [@armstrong1991].
+
+Despite their ecological and landscape importance as well as its high vulnerability, few studies have been conducted in these environments and most have only focused on estimating taxonomic diversity (e.g. [@guadarrama2018]).
+
+Here we evaluate the structure and phylogenetic diversity of plants in four coastal wetland communities of the northern Yucatan Peninsula, Mexico, which contrast in their landscapes and soil properties (e.g., floodable and non-floodable areas) to contribute to an understanding of the processes of community assembly in these dynamic tropical environments. Our specific questions were: 1) Are there contrasting changes in taxonomic and phylogenetic diversity among coastal wetland communities? 2) Are coastal wetland communities phylogenetically clustered or even compared to expected patterns of random community assemblies? 3) Do floodable communities with harsher environments present a clustering trend?
+
+We predict that communities with more environment and soil stress (floodable ecosystems) will show clustering patterns in plant communities due to evolutionary convergence (particular morphological and physiological attributes) or attributes shared by closely related species.
+
+\pagebreak
+
 ## Materials and Methods
+
+#### Study area
+
+The study was conducted in the tropical coastal wetland of the north coast of the Yucatan Peninsula, Mexico. Two ecosystems studied are included within the natural protected area "La Reserva Estatal Ciénegas y Manglares de la Costa Norte de Yucatán (RECMY)". The prevailing climate is warm dry with predominant summer rain and less rain in winter. The soils are especially poor in nutrients due to the presence of shallow calcareous soils and little organic matter. The coast of the Yucatan Peninsula represents a transition zone between the Gulf of Mexico and the Caribbean, hence the western of the Peninsula contains vegetation typical of the Gulf of Mexico, while the east has been influenced by Caribbean plant elements.
+
+#### Sampling
+
+Using five 100 x 5 m linear transects per community, every plant species (trees, shrubs, and herbs) present at each studied vegetation type was sampled. The identity of the plant species' was determined using dichotomous keys [@flores2001][@chávez2003]. Vouchers specimens were deposited at the MEXU (Universidad Autónoma de México); CICY (Centro de Investigación Científica de Yucatán) and UADY (Universidad Autónoma de Yucatán) herbaria. For this study, only presence-absence data was considered because coastal communities are characterized by low species abundance and cyclic succession [@acosta2009] which could bias results based on abundance.
+
+#### Analysis
+
+To assess the phylogenetic relationships for plant communities, time-calibrated tree-based cladograms were estimated using a Bayesian approach implemented in BEAST v.1.8.0 [@drummond2007] through the CIPRES Science Gateway. Analyses for the estimation of the NRI and NTI used a presence-absence matrix along with the 'picante' package [@kembel2010] for R v. 2.14.0 [@rcoreteam2015]. The tables and figures were created using the 'knitr' and the 'ggplot2' packages also in the R environment.
+
+\pagebreak
 
 ## Results
 
+Our main results showed the greatest plant phylogenetic diversity in the Peten, followed by the Coastal Dune Shrubs, the Mangrove and, lastly, the Tropical Low Flooding Forest with the lowest phylogenetic diversity (Table 1).
+
+```{r echo=FALSE, results='asis'}
+
+kable(comms_phylodiv, format="latex", booktabs=TRUE, caption= "Variation in plant phylogenetic diversity (MPD, MNTD and their standardized effective size, NRI and NTI) between coastal dune shrub (CDS), mangrove, peten and tropical low flooding forests (TLFF).") %>% 
+  column_spec(1, border_right = T) %>% 
+  row_spec(0, bold = T) %>% 
+  column_spec(3, bold = ifelse(comms_phylodiv$NRI > 1.5, T, F)) %>% 
+  column_spec(5, bold = ifelse(comms_phylodiv$NTI < -1.5, T, F)) %>% 
+  kable_styling(latex_options = "HOLD_position")
+```
+
+```{r, echo=FALSE}
+
+comms_phylodiv <- communities %>%
+  select(1:5)
+```
+
+Our results of plant phylogenetic community structure ranged from -1.70 to +1.38 for NTI and of -0.85 to +2.61 for NRI. Phylogenetic evenness trends were found in the CDS (NTI=-2.17; NRI=-1.40) and the Peten communities, which could be suggesting high competition within each community. On the other hand, phylogenetic clustering trends were found in both the Mangrove and the TLFF community (Figure 1 & 2), suggesting facilitation processes that could be driving plant assembly within flooding communities.
+
+```{r billfig, fig.cap = "Variation in Net Relatedness Index (NRI) between coastal dune shrub (CDS), mangrove (M), peten (P) and tropical low flooding forests (TLFF). Positive values indicate phylogenetic clustering and negative values indicate phylogenetic evenness.", fig.width = 3, fig.height = 3, warning=FALSE}
+
+comms_phylodiv %>% 
+  ggplot(aes(x=Community, y=NRI)) + 
+  geom_point(size=3) +
+  labs(y = "Net Relatedness Index (NRI)") +
+  theme(axis.text.x = element_text(family="serif", color="black", face="bold", size = 11)) + 
+  theme(axis.text.y = element_text(family="serif", color="black", face="bold", size = 11)) +
+  theme(axis.line = element_line(size = 0.5, linetype = "solid")) +
+  theme(axis.title.y = element_text(family="serif", face="bold", size = 11)) +
+  theme(axis.title.x = element_blank()) +
+  scale_y_continuous(limit = c(-2, 3)) +
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+
+```
+
+```{r fig, fig.cap = "Variation in Nearest Taxon Index (NTI) between coastal dune shrub (CDS), mangrove (M), peten (P) and tropical low flooding forests (TLFF). Positive values indicate phylogenetic clustering and negative values indicate phylogenetic evenness.", fig.width = 3, fig.height = 3, warning=FALSE}
+
+comms_phylodiv %>% 
+  ggplot(aes(x=Community, y=NTI)) + 
+  geom_point(size=3) +
+  labs(y = "Nearest Taxon Index (NTI)") +
+  theme(axis.text.x = element_text(family="serif", color="black", face="bold", size = 11)) + 
+  theme(axis.text.y = element_text(family="serif", color="black", face="bold", size = 11)) +
+  theme(axis.line = element_line(size = 0.5, linetype = "solid")) +
+  theme(axis.title.y = element_text(family="serif", face="bold", size = 11)) +
+  theme(axis.title.x = element_blank()) +
+  scale_y_continuous(limit = c(-2, 3)) +
+  geom_hline(yintercept=0, linetype="dashed", color = "black")
+  
+```
+
+\pagebreak
+
 ## Discussion
 
-## Conclusions
+Our main results revealed a higher plant phylogenetic diversity in the Peten. Likewise, our test in phylogenetic community structure showed evenness trends in non-flooded communities (CDS and peten) and clustering patterns in flooding communities (TLFF and mangrove). Previous studies have recorded both stochastics (e.g., Angulo et al., 2018) and deterministic phylogenetic patterns for harsh environments (e.g., Quian et al., 2014; Menezes et al., 2020).
+
+## Conclusion
+
+The study is not yet over and more information is still needed.
+
+\pagebreak
 
 ## References
 
@@ -53,17 +164,3 @@ Plant communities found in stressful environments, such as coastal ecosystems, w
 :::
 
 #### 
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
