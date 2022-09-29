@@ -13,3 +13,6 @@ communities <- read.csv("https://osf.io/gdpbh/download")
 
 # Checking overview of the data
 skim(communities)
+
+# To download data to your device as a csv file and save it in your current working directory: 
+write.csv(communities, "communities_phylodiv.csv")
