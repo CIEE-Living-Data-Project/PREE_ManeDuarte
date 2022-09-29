@@ -58,7 +58,7 @@ get_pkgs_info()
 
 ## Abstract
 
-Plant communities found in stressful environments, such as coastal ecosystems, where biotic and abiotic filters can be strong determinants of community structure [@valiente-banuet2007][@forey2009] are ideal systems to evaluate the relative importance of deterministic versus random mechanisms in shaping community assembly. Therefore, this study aims to evaluate the phylogenetic diversity and structure in plant communities in order to understand the role of deterministic and stochastic assembly processes in four contrasting communities of the tropical coastal wetland in the Cienegas and Mangrove State Reserve on the North coast of Yucatan.
+Plant communities found in stressful environments, such as coastal ecosystems, where biotic and abiotic filters can be strong determinants of community structure [@valiente-banuet2007;@forey2009] are ideal systems to evaluate the relative importance of deterministic versus random mechanisms in shaping community assembly. Therefore, this study aims to evaluate the phylogenetic diversity and structure in plant communities in order to understand the role of deterministic and stochastic assembly processes in four contrasting communities of the tropical coastal wetland in the Cienegas and Mangrove State Reserve on the North coast of Yucatan.
 
 **Key words:** phylogenetic diversity, community assembly, coastal communities, plant communities.
 
