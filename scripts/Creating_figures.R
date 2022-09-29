@@ -23,8 +23,8 @@ comms_phylodiv <- communities %>%
 comms_phylodiv %>% 
   ggplot(aes(x=Community, y=NRI)) + 
   geom_point(size=3) +
-  labs(y = "Net Relatedness Index (NRI)", caption = "Figure 1. Variation in Net Relatedness Index (NRI) between coastal dune shrub (CDS), mangrove (M), peten (P) and tropical low flooding forests (TLFF). 
-Positive values indicate phylogenetic clustering and negative values indicate phylogenetic evenness.") +
+  labs(y = "Net Relatedness Index (NRI)", caption = "Figure 1. Variation in Net Relatedness Index (NRI) between coastal dune shrub (CDS), mangrove (M), peten (P) and tropical low 
+  flooding forests (TLFF). Positive values indicate phylogenetic clustering and negative values indicate phylogenetic evenness.") +
   theme(axis.text.x = element_text(family="serif", color="black", face="bold", size = 11)) + 
   theme(axis.text.y = element_text(family="serif", color="black", face="bold", size = 11)) +
   theme(axis.line = element_line(size = 0.5, linetype = "solid")) +
@@ -40,8 +40,8 @@ Positive values indicate phylogenetic clustering and negative values indicate ph
 comms_phylodiv %>% 
   ggplot(aes(x=Community, y=NTI)) + 
   geom_point(size=3) +
-  labs(y = "Nearest Taxon Index (NTI)", caption = "Figure 2. Variation in Nearest Taxon Index (NTI) between coastal dune shrub (CDS), mangrove (M), peten (P) and tropical low flooding forests (TLFF). 
-  Positive values indicate phylogenetic clustering and negative values indicate phylogenetic evenness.") +
+  labs(y = "Nearest Taxon Index (NTI)", caption = "Figure 2. Variation in Nearest Taxon Index (NTI) between coastal dune shrub (CDS), mangrove (M), peten (P) and tropical low 
+       flooding forests (TLFF). Positive values indicate phylogenetic clustering and negative values indicate phylogenetic evenness.") +
   theme(axis.text.x = element_text(family="serif", color="black", face="bold", size = 11)) + 
   theme(axis.text.y = element_text(family="serif", color="black", face="bold", size = 11)) +
   theme(axis.line = element_line(size = 0.5, linetype = "solid")) +
